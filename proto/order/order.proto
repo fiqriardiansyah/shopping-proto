@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package order;
+
+option go_package = "github.com/fiqriardiansyah/shopping-proto/gen/go/order;orderpb";
+
+import "common/common.proto";
+
+service OrderService {
+    rpc GetUserOrders(GetUserOrdersRequest) returns (GetUserOrdersResponse);
+}
+
+message GetUserOrdersRequest {
+    string user_id = 1;
+}
+
+message GetUserOrdersResponse {
+    repeated common.Order orders = 1;
+}
