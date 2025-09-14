@@ -1,0 +1,13 @@
+#how to run? just "task generate" in your terminal
+
+version: 3
+
+tasks:
+  generate:
+    cmds:
+      - |
+        protoc -I=proto \
+        --go_out=gen/go --go_opt=paths=source_relative \
+        --go-grpc_out=gen/go --go-grpc_opt=paths=source_relative \
+        proto/user/user.proto \
+        proto/order/order.proto
